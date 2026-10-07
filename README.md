@@ -6,6 +6,8 @@ It reads existing Prometheus metrics and Loki logs using a read-only token, stor
 
 The requested project spelling is retained in paths and release artifacts. The upstream service is **Grafana Cloud Synthetic Monitoring**.
 
+![Probe telemetry dataset](docs/01_probe-telemetry_zoomed_light.png)
+
 ![Demo Animation](docs/probe-topology-light.gif)
 
 ## Scope
