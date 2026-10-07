@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "template_note": "Sanitized defaults; the installer writes approved job names at deployment time.",
+  "window_seconds": 600,
+  "jobs": {
+    "target-http": {
+      "target_id": "monitored_service",
+      "check_type": "http",
+      "frequency_seconds": 120
+    },
+    "target-dns": {
+      "target_id": "monitored_service",
+      "check_type": "dns",
+      "frequency_seconds": 600
+    }
+  },
+  "probes": {
+    "*": {
+      "probe_type": "unclassified",
+      "probe_location": "not-configured",
+      "probe_provider": "not-configured"
+    }
+  }
+}

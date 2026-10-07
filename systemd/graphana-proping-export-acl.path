@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch the Graphana_Proping feature directory for export replacement
+
+[Path]
+PathChanged=/data/Graphana_Proping/features
+Unit=graphana-proping-export-acl.service
+
+[Install]
+WantedBy=multi-user.target

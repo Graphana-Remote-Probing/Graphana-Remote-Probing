@@ -1,0 +1,35 @@
+[Unit]
+Description=Collect and stage Grafana Synthetic Monitoring telemetry
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=graphana-proping
+Group=graphana-proping
+UMask=0027
+ExecStart=/usr/bin/python3 /opt/Graphana_Proping/src/collect_grafana.py --lookback-minutes 30
+ExecStartPost=/usr/bin/python3 /opt/Graphana_Proping/src/build_features.py
+ExecStartPost=/opt/Graphana_Proping/scripts/apply_integration_acl.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadOnlyPaths=/opt/Graphana_Proping /etc/Graphana_Proping
+ReadWritePaths=/data/Graphana_Proping /var/lib/Graphana_Proping
+
+[Install]
+WantedBy=multi-user.target

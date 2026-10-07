@@ -1,0 +1,10 @@
+Graphana_Proping
+Copyright © 2026 Ahmed Mekky. All rights reserved.
+
+This staging integration collects authorized Grafana Cloud Synthetic Monitoring
+telemetry and prepares local feature files for defensive DDoS anomaly detection.
+
+Grafana and Grafana Cloud are trademarks of their respective owner. This project
+is not an official Grafana Labs product and is not endorsed by Grafana Labs.
+
+Use, modification, and redistribution are governed by the LICENSE file.

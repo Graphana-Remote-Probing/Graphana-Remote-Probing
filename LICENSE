@@ -1,0 +1,45 @@
+GRAPHANA_PROPING RESPONSIBLE USE LICENSE — RELEASE-CANDIDATE DRAFT
+
+Copyright © 2026 Ahmed Mekky. All rights reserved.
+
+1. Approved scope
+
+This software may be used only for defensive cybersecurity, authorized monitoring,
+anomaly detection, threat-intelligence correlation, and authorized security testing.
+It does not authorize interception, scanning, probing, monitoring, or access without
+the permission of the relevant system and data owners.
+
+2. Modification responsibility
+
+This software may be modified. Any person or entity making a modification is solely
+responsible for the modified version and for its subsequent use.
+
+The original owner shall not be responsible for modifications intended to host or
+distribute malware, facilitate unauthorized access, conduct suspicious or unlawful
+activities, or support any purpose inconsistent with the documented and approved
+scope of use.
+
+Such modifications and activities are not authorized by, endorsed by, or attributable
+to the original owner.
+
+3. Attribution and representation
+
+Modifiers must identify their changes and preserve the original ownership notice.
+A modified version must not be represented as an official Ahmed Mekky release.
+
+4. No warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM
+EXTENT PERMITTED BY APPLICABLE LAW, THE OWNER SHALL NOT BE LIABLE FOR CLAIMS,
+DAMAGES, LOSSES, OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+
+5. Distribution status
+
+This release candidate is intended for private review and authorized internal use.
+It must not be described as open-source software or publicly distributed unless a
+legally approved final license explicitly grants those permissions.
+
+6. Legal review
+
+This draft requires intellectual-property, employer-policy, and legal review before
+public distribution or formal production approval.

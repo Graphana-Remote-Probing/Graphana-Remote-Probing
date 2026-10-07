@@ -1,0 +1,28 @@
+[Unit]
+Description=Apply read-only ACL to the Graphana_Proping current feature export
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/opt/Graphana_Proping/scripts/apply_integration_acl.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+CapabilityBoundingSet=CAP_FOWNER CAP_DAC_OVERRIDE
+RestrictAddressFamilies=AF_UNIX
+ReadOnlyPaths=/opt/Graphana_Proping /etc/Graphana_Proping
+ReadWritePaths=/data/Graphana_Proping

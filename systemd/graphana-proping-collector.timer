@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Graphana_Proping staging collector every 5 minutes
+
+[Timer]
+OnCalendar=*:0/5
+Persistent=true
+RandomizedDelaySec=15
+Unit=graphana-proping-collector.service
+
+[Install]
+WantedBy=timers.target
