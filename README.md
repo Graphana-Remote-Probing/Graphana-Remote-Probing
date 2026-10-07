@@ -8,6 +8,36 @@ The requested project spelling is retained in paths and release artifacts. The u
 
 ![Demo Animation](docs/probe-topology-light.gif)
 
+## Scope
+
+Included:
+
+- Read-only Prometheus and Loki collection.
+- Atomic raw JSON gzip snapshots and a latest-success manifest.
+- Ten-minute ML feature windows by default.
+- `probe_features_current.csv` for current inference.
+- `probe_features_history.csv` for training and backtesting.
+- A hardened systemd oneshot service and five-minute timer.
+- Health, expiry, connectivity, authorization, freshness, and permission diagnostics.
+
+Synthetic telemetry can provide availability and performance evidence. It does not, by itself, prove that a DDoS attack occurred.
+
+## Prerequisites
+
+Before installation, the operator must have:
+
+1. Ubuntu 22.04 or 24.04 with `sudo`, systemd, DNS, NTP, and outbound HTTPS/TCP 443.
+2. An active Grafana Cloud stack and working Synthetic Monitoring checks.
+3. The approved HTTP and DNS job names. Probe names are discovered from returned telemetry; optional metadata can be added later in `targets.json`.
+4. Prometheus query URL and username/instance ID.
+5. Loki query URL and username/instance ID.
+6. A dedicated Cloud Access Policy token containing only `metrics:read` and `logs:read`.
+7. The token expiration date, or confirmation that the token has no configured platform expiration.
+8. An approved DDoS-ML Unix group that may read the two feature CSV files.
+9. An existing unprivileged Linux user for the remote DDoS-ML SSH integration. Its password is entered only in the DDoS-ML GUI and is never requested or stored by this installer.
+
+Do not use a private-probe publishing token as the collector's read token.
+
 ## Start here: prepare Grafana Cloud before the Ubuntu VM
 
 Complete this section first. Do not start the Ubuntu installation until both checks are producing data and all ten installer values in the final table have been recorded securely.
@@ -169,36 +199,6 @@ Official preparation references:
 - [Create an HTTP/HTTPS check](https://grafana.com/docs/grafana-cloud/observe-and-act/testing/synthetic-monitoring/create-checks/checks/http/)
 - [Create access policies and tokens](https://grafana.com/docs/grafana-cloud/platform/security-and-account-management/security-and-access/authentication-and-permissions/access-policies/create-access-policies/)
 - [Query Grafana Cloud Metrics using HTTP APIs](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/query-http-api/)
-
-## Scope
-
-Included:
-
-- Read-only Prometheus and Loki collection.
-- Atomic raw JSON gzip snapshots and a latest-success manifest.
-- Ten-minute ML feature windows by default.
-- `probe_features_current.csv` for current inference.
-- `probe_features_history.csv` for training and backtesting.
-- A hardened systemd oneshot service and five-minute timer.
-- Health, expiry, connectivity, authorization, freshness, and permission diagnostics.
-
-Synthetic telemetry can provide availability and performance evidence. It does not, by itself, prove that a DDoS attack occurred.
-
-## Prerequisites
-
-Before installation, the operator must have:
-
-1. Ubuntu 22.04 or 24.04 with `sudo`, systemd, DNS, NTP, and outbound HTTPS/TCP 443.
-2. An active Grafana Cloud stack and working Synthetic Monitoring checks.
-3. The approved HTTP and DNS job names. Probe names are discovered from returned telemetry; optional metadata can be added later in `targets.json`.
-4. Prometheus query URL and username/instance ID.
-5. Loki query URL and username/instance ID.
-6. A dedicated Cloud Access Policy token containing only `metrics:read` and `logs:read`.
-7. The token expiration date, or confirmation that the token has no configured platform expiration.
-8. An approved DDoS-ML Unix group that may read the two feature CSV files.
-9. An existing unprivileged Linux user for the remote DDoS-ML SSH integration. Its password is entered only in the DDoS-ML GUI and is never requested or stored by this installer.
-
-Do not use a private-probe publishing token as the collector's read token.
 
 ## One-command installation on a clean Ubuntu VM
 
