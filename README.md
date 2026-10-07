@@ -213,22 +213,6 @@ cd Graphana-Remote-Probing
 sudo bash tests/clean_vm_acceptance.sh
 ```
 
-During private pre-public validation only, authenticate with a GitHub account that has access to the staged repository:
-
-```bash
-sudo apt-get update
-sudo apt-get install -y git gh
-
-gh auth login --hostname github.com --git-protocol https --web
-gh auth setup-git
-gh repo clone Graphana-Remote-Probing/Graphana-Remote-Probing
-cd Graphana-Remote-Probing
-
-sudo bash tests/clean_vm_acceptance.sh
-```
-
-The `gh auth login` command displays a one-time device code and opens, or provides, a browser URL for GitHub authorization. Authenticate only with the approved GitHub account; never paste a GitHub token into the command itself or store it in this repository.
-
 The command verifies package hashes, runs the source tests, launches the prerequisite questionnaire, performs the installation, repeats collection, verifies the service and timer, checks protected permissions and both feature files, and writes a credential-free report to:
 
 ```text
